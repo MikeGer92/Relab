@@ -3,7 +3,7 @@
     <div class="container page">
       <div class="row">
         <div class="col-md-6 offset-md-3 col-xs-12">
-          <form @submit.prevent="onSubmit">
+          <form @submit.prevent="onSubmit" :disabled="isSubmitting">
             <fieldset class="form-group">
               <input
                 class="form-control form-control-lg"
@@ -34,7 +34,10 @@ export default {
   methods: {
     onSubmit() {
       console.log('submitted form'),
-      this.$store.commit('registerStart')
+      this.$store.dispatch('register', {user: 'mikeman2021@list.ru', password: 'a26Oct2021'
+      }).then(user => {
+        console.log('successfully register user', user)
+      })
 
     }
   },
