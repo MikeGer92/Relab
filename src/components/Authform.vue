@@ -33,7 +33,14 @@ export default {
   name: 'Authform',
   methods: {
     onSubmit() {
-      console.log('submitted form')
+      console.log('submitted form'),
+      this.$store.commit('registerStart')
+
+    }
+  },
+  computed: {
+    isSubmitting() {
+      return this.$store.state.auth.isSubmiting
     }
   }
 }
