@@ -3,7 +3,7 @@
     <div class="container page">
       <div class="row">
         <div class="col-md-6 offset-md-3 col-xs-12">
-          <form @submit="checkForm" @submit.prevent="onSubmit" :disabled="isSubmitting">
+          <form @submit.prevent="onSubmit" :disabled="isSubmitting">
             <fieldset class="form-group">
               <input
                 class="form-control form-control-lg"
@@ -42,12 +42,17 @@ export default {
   },
   methods: {
     onSubmit() {
-      console.log('submitted form'),
-      this.$store.dispatch('register', {Email: this.email, Password: this.pass})
-      .then(user => {
-        console.log('successfully registration', user);
-        window.location.href = 'http://127.0.0.1:8080/';
-      })
+      const res = this.checkForm(event)
+      if (res) {
+        console.log('submitted form'),
+        this.$store.dispatch('register', {Email: this.email, Password: this.pass})
+        .then(user => {
+          console.log('successfully registration', user);
+          window.location.href = 'http://127.0.0.1:8080/';
+        })
+      } else {
+        console.log('Ошибки в форме регистрации')
+      }
     },
     checkForm (e) {
       this.errors = [];
