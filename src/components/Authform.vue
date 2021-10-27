@@ -33,6 +33,7 @@
 <script>
 export default {
   name: 'Authform',
+<<<<<<< HEAD
   errors: [],
   data() {
     return {
