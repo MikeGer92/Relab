@@ -32,8 +32,8 @@ const actions = {
                 console.log('result errors', result);
                 context.commit('registerFailure', result.response.data.console.errors);
                 setTimeout(() => {
-                // window.location.href = 'http://127.0.0.1:8080/';
-                context.commit('registerStart');
+                    window.location.href = 'http://127.0.0.1:8080/';
+                    context.commit('registerStart');
         }, 5000);
             });
         });

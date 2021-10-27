@@ -9,6 +9,7 @@
                 class="form-control form-control-lg"
                 type="text"
                 placeholder="Email"
+                v-model="email"
               />
             </fieldset>
             <fieldset class="form-group">
@@ -16,6 +17,7 @@
                 class="form-control form-control-lg"
                 type="password"
                 placeholder="Password"
+                v-model="pass"
               />
             </fieldset>
             <button class="btn btn-lg btn-primary pull-xs-right">
@@ -31,12 +33,22 @@
 <script>
 export default {
   name: 'Authform',
+  data() {
+    return {
+    email: '',
+    pass: ''
+    }
+  },
   methods: {
     onSubmit() {
       console.log('submitted form'),
-      this.$store.dispatch('register', {user: 'mikeman2021@list.ru', password: 'a26Oct2021'
+      this.$store
+          .dispatch('register', {
+            email: this.email, 
+            password: this.pass
       }).then(user => {
         console.log('successfully register user', user)
+        this.$router.push({name: 'home'})
       })
 
     }
