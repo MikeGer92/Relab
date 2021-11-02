@@ -1,10 +1,12 @@
 import useritem from '@/api/useritem';
 
 
+
 const state = {
     data: null,
     isLoading: false,
-    error: null
+    error: null,
+    ctimes: []
 };
 
 export const mutationTypes = {
@@ -25,6 +27,10 @@ const mutations = {
     [mutationTypes.getUseritemSuccess](state, payload){
         state.isLoading = false;
         state.data = payload;
+        state.ctimes = state.data.items.map(function(item) {
+            return (new Date(item.ctime * 1000).toLocaleString());
+        });
+
     },
     [mutationTypes.getUseritemFailure](state){
         state.isLoading = false;
@@ -40,6 +46,9 @@ const actions = {
                 .then(response => {
                     context.commit(mutationTypes.getUseritemSuccess, response.data);
                     resolve(response.data);
+                })
+                .catch(() => {
+                    context.commit(mutationTypes.getUseritemFailure);
                 });
         });
     }
