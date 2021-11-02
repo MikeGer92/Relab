@@ -1,9 +1,24 @@
 <template>
   <div id="app">
-  <header></header>
+    <Header></Header>
+    <Logo></Logo>
     <router-view/>
   </div>
 </template>
+
+<script>
+import Header from '@/components/Header.vue'
+import Logo from '@/components/Logo.vue'
+export default {
+  name: 'App',
+  components: {
+    Header,
+    Logo
+  }
+  }
+
+
+</script>
 
 <style>
 #app {

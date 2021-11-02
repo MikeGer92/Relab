@@ -1,23 +1,33 @@
 <template>
   <div class="home">
-    <Header></Header>
-    <Logo></Logo>
     <Welcome msg="Добро пожаловать!"/>
+
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import Header from '@/components/Header.vue'
-import Logo from '@/components/Logo.vue'
 import Welcome from '@/components/Welcome.vue'
+// import Useritem from '@/components/Useritem'
 
 export default {
   name: 'Home',
   components: {
     Welcome,
-    Header,
-    Logo
-  }
+  },
+
+  usersList: [
+        {
+            id: 25,
+            name: 'mike',
+            role: 'admin',
+            ctime: '26.10.2021 16:37'
+            },
+        {
+            id: 2,
+            name: 'nick',
+            role: 'manage',
+            ctime: '27.10.2021 10:28'
+            },
+    ]
 }
 </script>

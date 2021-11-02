@@ -1,4 +1,6 @@
 import authApi from '@/api/auth';
+import {setItem} from '@/helpers/persistantStorage';
+import { resolve } from 'core-js/fn/promise';
 
 
 const state = {
@@ -32,6 +34,8 @@ const actions = {
             authApi.register(credentials)
             .then(response => {
                 context.commit('registerSuccess', response.data.user);
+                setItem('accessToken', response.data.user.token);
+                resolve(response.data.user);
                 console.log('response', response);
                 
                 

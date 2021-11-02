@@ -45,7 +45,7 @@ export default {
       const res = this.checkForm(event)
       if (res) {
         console.log('submitted form'),
-        this.$store.dispatch('register', {Email: this.email, Password: this.pass})
+        this.$store.dispatch('register', {email: this.email, password: this.pass})
         .then(user => {
           console.log('successfully registration', user);
           window.location.href = 'http://127.0.0.1:8080/';
@@ -72,8 +72,8 @@ export default {
       if (!this.errors.length) {
         return true;
       }
-
       e.preventDefault();
+
     },
     validEmail: function (email) {
       var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -89,7 +89,7 @@ export default {
   computed: {
     isSubmitting() {
       return this.$store.state.auth.isSubmiting
-    }
+    },
   }
 }
 </script>
