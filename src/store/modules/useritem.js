@@ -1,4 +1,5 @@
 import useritem from '@/api/useritem';
+// import curTime from '@/helpers/persistantStorage';
 
 
 
@@ -28,7 +29,7 @@ const mutations = {
         state.isLoading = false;
         state.data = payload;
         state.ctimes = state.data.items.map(function(item) {
-            return (new Date(item.ctime * 1000).toLocaleString());
+            return (new Date(item.ctime * 1000).toLocaleString().slice(0, -3).replace(',', ''));
         });
 
     },

@@ -1,7 +1,7 @@
 <template>
     <div class="nav">
         <button class="nav-btn" type="button"><router-link to="/">Home</router-link></button>
-        <button class="nav_btn" type="button"><router-link to="/login">Auth</router-link></button>
+        <button class="nav-btn" type="button"><router-link to="/login">Auth</router-link></button>
     </div>
 </template>
 
@@ -30,9 +30,11 @@ export default {
 .nav a.router-link-exact-active {
   color: #42b983;
 }
-.nav button{
+.nav-btn {
     width: 80px;
     height: 30px;
+  border-radius: 10px;
+
 }
 
 </style>

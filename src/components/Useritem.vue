@@ -1,13 +1,14 @@
 <template>
     <div>
-        <!-- <div v-if="error">Something bad</div> -->
+        <div v-if="error">Something bad</div>
         <div v-if="useritem">
             <div class="useritem" v-for="(item, index) in useritem.items" :key="index">
                 <div class="user-meta">
-                    <div class="user_id">{{ item.id }}</div>
-                    <div class="user_name">{{ item.name }}</div>
-                    <div class="user_role">{{ item.role }}</div>
-                    <CurDate>{{ ctimes[index] }}</CurDate>
+                    <div class="data-str user_id">{{ item.id }}</div>
+                    <div class="data-str user_name">{{ item.name }}</div>
+                    <div class="data-str user_role">{{ item.role }}</div>
+                    <CurDate class="data-str" >{{ ctimes[index] }}</CurDate>
+                    <button class="data-str nav-btn" type="button">Удалить</button>
                 </div>
             </div>
         </div> 
@@ -21,7 +22,7 @@ import CurDate from '@/components/CurDate'
 export default {
     name: 'Useritem',
     components: {
-        CurDate
+        CurDate,
     },
     props: {
         userUrl: {
@@ -48,3 +49,25 @@ export default {
 }
 
 </script>
+
+<style scoped>
+.user-meta {
+    display: flex;
+    
+}
+.useritem {
+    text-align: left;
+    align-items: center;
+    
+}
+.data-str {
+    flex-basis: 20%;
+    border-bottom: solid 1px #444141;
+}
+.nav-btn {
+    width: 10px;
+    height: 30px;
+  border-radius: 10px;
+
+}
+</style>
