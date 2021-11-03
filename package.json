@@ -11,7 +11,8 @@
     "axios": "^0.24.0",
     "core-js": "^3.6.5",
     "element-ui": "^2.15.6",
-    "query-string": "^4.3.4",
+    "query-string": "^6.14.1",
+    "urllib": "^2.37.4",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0",
     "vuex": "^3.4.0"

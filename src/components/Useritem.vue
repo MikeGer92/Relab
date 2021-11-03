@@ -21,6 +21,7 @@ import {mapState} from 'vuex'
 import {actionTypes} from '@/store/modules/useritem'
 import CurDate from '@/components/CurDate'
 import Pagination from '@/components/Pagination'
+import {limit} from '@/helpers/vars'
 import { parseUrl, stringify} from 'query-string'
 export default {
     name: 'Useritem',
@@ -46,32 +47,34 @@ export default {
         },
         baseUrl() {
             return Number(this.$route.path)
+        },
+        offset() {
+            return this.currentPage  * limit - limit
+            
         }
     },
     watch: {
         currentPage() {
             console.log('currentPage changed')
-            this.fetchUseitem()
+            this.fetchUseritem()
         }
     },
     methods: {
-        fetchUseitem() {
+        fetchUseritem() {
             const parsedUrl = parseUrl(this.userUrl)
             const stringifiedParams = stringify({
-                limit: 5,
-                offset: 0,
-                ...parsedUrl.query
-
+                limit,
+                offset: this.offset,
+                ...parsedUrl.url
             })
-            const apiWithParams = `${parsedUrl}?${stringifiedParams}`
+            const apiWithParams = `${parsedUrl.url}?${stringifiedParams}`
             this.$store.dispatch(actionTypes.getUseritem, {userUrl: apiWithParams})
         }
 
     },
     mounted() {
         console.log('init useritem')
-        // this.$store.dispatch(actionTypes.getUseritem, {userUrl: this.userUrl})
-        this.fetchUseitem()
+        this.fetchUseritem()
 
     },
 }

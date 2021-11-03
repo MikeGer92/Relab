@@ -19,10 +19,10 @@
 
 
 <script>
-import Welcome from '@/components/Welcome.vue'
-import Useritem from '@/components/Useritem.vue'
-import TabHeaderUser from '@/components/TabHeaderUser.vue'
-import TabHeaderEvent from '@/components/TabHeaderEvent.vue'
+import Welcome from '@/components/Welcome.vue';
+import Useritem from '@/components/Useritem.vue';
+import TabHeaderUser from '@/components/TabHeaderUser.vue';
+import TabHeaderEvent from '@/components/TabHeaderEvent.vue';
 
 export default {
   name: 'Home',
