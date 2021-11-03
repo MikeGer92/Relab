@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div v-if="error">Something bad</div>
+        <div v-if="isLoading">Loading...</div>
         <div v-if="useritem">
             <div class="useritem" v-for="(item, index) in useritem.items" :key="index">
                 <div class="user-meta">
@@ -11,6 +11,7 @@
                     <button class="data-str nav-btn" type="button">Удалить</button>
                 </div>
             </div>
+            <Pagination :total="useritem.total" :limit="useritem.per_page" :current-page="currentPage" :url="baseUrl"></Pagination>
         </div> 
     </div>
 </template>
@@ -19,10 +20,12 @@
 import {mapState} from 'vuex'
 import {actionTypes} from '@/store/modules/useritem'
 import CurDate from '@/components/CurDate'
+import Pagination from '@/components/Pagination'
 export default {
     name: 'Useritem',
     components: {
         CurDate,
+        Pagination
     },
     props: {
         userUrl: {
@@ -37,13 +40,28 @@ export default {
             errors: state => state.useritem.error,
             ctimes: state => state.useritem.ctimes
         }),
+        currentPage() {
+            return Number(this.$route.query.page || '1')
+        },
+        baseUrl() {
+            return Number(this.$route.path)
+        }
+    },
+    watch: {
+        currentPage() {
+            console.log('currentPage changed')
+            this.fetchUseitem()
+        }
     },
     methods: {
+        fetchUseitem() {
+            this.$store.dispatch(actionTypes.getUseritem, {userUrl: this.userUrl})
+        }
 
     },
     mounted() {
         console.log('init useritem')
-        this.$store.dispatch(actionTypes.getUseritem, {userUrl: this.userUrl})
+        this.fetchUseitem()
 
     },
 }
