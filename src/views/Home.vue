@@ -32,21 +32,6 @@ export default {
     TabHeaderUser,
     TabHeaderEvent
   },
-
-  usersList: [
-        {
-            id: 25,
-            name: 'mike',
-            role: 'admin',
-            ctime: '26.10.2021 16:37'
-            },
-        {
-            id: 2,
-            name: 'nick',
-            role: 'manage',
-            ctime: '27.10.2021 10:28'
-            },
-    ],
     data() {
       return {
         userUrl: '/users/list'
