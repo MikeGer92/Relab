@@ -35,6 +35,25 @@ export default {
             required: true
         }
     },
+        data() {
+      return {
+        connection: null,
+        events: []
+      }
+    },
+    created: function() {
+      console.log('Start connection')
+      this.connection = new WebSocket('wss://test.relabs.ru/event')
+
+      this.connection.onopen = function(event) {
+        console.log(event)
+        console.log('Successfully connected to wss-relab')
+      }
+
+      this.connection.onmessage = function(event) {
+        console.log(event)
+      }
+    },
     computed: {
         ...mapState({
             isLoading: state => state.useritem.isLoading,
@@ -69,7 +88,11 @@ export default {
             })
             const apiWithParams = `${parsedUrl.url}?${stringifiedParams}`
             this.$store.dispatch(actionTypes.getUseritem, {userUrl: apiWithParams})
-        }
+        },
+        sendMessage: function(message) {
+        console.log(this.connection)
+        this.connection.send(message)
+      }
 
     },
     mounted() {

@@ -13,11 +13,9 @@ export default {
   name: 'App',
   components: {
     Header,
-    Logo
+    Logo 
   }
-  }
-
-
+}
 </script>
 
 <style>
