@@ -18,7 +18,7 @@ export default {
 <style scoped>
 .table-header {
     display: flex;
-    text-align: left;
+    text-align: center;
     border-bottom: solid 1px #444141;
 }
 p {
