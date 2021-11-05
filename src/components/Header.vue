@@ -14,7 +14,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .nav {
-    border: 1px solid black;
+    border: 1px solid darkgrey;
     background-color: gray;
     width: 100%;
     height: 50px;
@@ -31,9 +31,10 @@ export default {
   color: #42b983;
 }
 .nav-btn {
-    width: 80px;
-    height: 30px;
+  width: 80px;
+  height: 30px;
   border-radius: 10px;
+  border: solid 1px #7e7e7e;
 
 }
 

@@ -40,6 +40,9 @@ export default {
       events: []
     }
   },
+  methods: {
+
+  },
   created: function() {
     console.log('Start connection')
       this.connection = new WebSocket('wss://test.relabs.ru/event')
