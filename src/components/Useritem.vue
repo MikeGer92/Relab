@@ -35,12 +35,6 @@ export default {
             required: true
         }
     },
-    data() {
-      return {
-        connection: null,
-        events: []
-      }
-    },
     computed: {
         ...mapState({
             isLoading: state => state.useritem.isLoading,

@@ -3,7 +3,8 @@
     <div class="container page">
       <div class="row">
         <div class="col-md-6 offset-md-3 col-xs-12">
-          <form @submit.prevent="onSubmit" :disabled="isSubmitting">
+          <div v-if="isSubmitting"><h3>Loading...</h3></div>
+          <form id="form" @submit.prevent="onSubmit" :disabled="isSubmitting">
             <fieldset class="form-group">
               <input
                 class="form-control form-control-lg"
@@ -24,6 +25,7 @@
               Sign Up
             </button>
           </form>
+          <!-- <div v-if="isErrors">{{ errors }}</div> -->
         </div>
       </div>
     </div>
@@ -31,6 +33,7 @@
 </template>
 
 <script>
+import {actionTypes} from '@/store/modules/auth'
 export default {
   name: 'Authform',
   errors: [],
@@ -43,37 +46,36 @@ export default {
   methods: {
     onSubmit() {
       const res = this.checkForm(event)
-      if (res) {
+      if (res == true) {
         console.log('submitted form'),
-        this.$store.dispatch('register', {email: this.email, password: this.pass})
+        this.$store.dispatch(actionTypes.register, {email: this.email, password: this.pass})
         .then(user => {
           console.log('successfully registration', user);
-          window.location.href = 'http://127.0.0.1:8080/';
         })
       } else {
-        console.log('Ошибки в форме регистрации')
+        this.isErrors
       }
     },
     checkForm (e) {
       this.errors = [];
       if (!this.email) {
         this.errors.push('Укажите электронную почту.');
-        console.log('Укажите электронную почту.')
       } else if (!this.validEmail(this.email)) {
-        this.errors.push('Укажите корректный адрес электронной почты.');
+        this.errors.push('Некорректный адрес электронной почты.');
       }
       if (!this.pass) {
         this.errors.push('Укажите пароль.');
-        console.log('Укажите пароль.')
+      } else if (this.pass.length < 8) {
+          this.errors.push('Минимальная дилинна пароля 8 знаков')
       } else if (!this.validPass(this.pass)) {
-        this.errors.push('Введите корректный пароль')
-      }
-
-      if (!this.errors.length) {
-        return true;
+        this.errors.push('Пароль должен содержать минимум 1 заглавную букву и 1 цифру')
       }
       e.preventDefault();
-
+      if (!this.errors.length) {
+        return true;
+      } else {
+         return this.errors
+      }
     },
     validEmail: function (email) {
       var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -88,10 +90,21 @@ export default {
   
   computed: {
     isSubmitting() {
-      return this.$store.state.auth.isSubmiting
+      return this.$store.state.auth.isSubmitting
     },
+    isLogged() {
+      return this.$store.state.auth.isLogged
+    }
+    // isErrors() {
+    //   if (arr.length > 0) {
+    //     return true
+    //   } else {
+    //     return false
+    //   }
+    // }
   }
 }
+
 </script>
 
 <style scoped>

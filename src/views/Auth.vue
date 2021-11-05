@@ -2,8 +2,6 @@
   <div class="auth">
     <h1>Авторизация</h1>
     <Authform></Authform>
-    <div class="authform">
-    </div>
   </div>
 </template>
 
@@ -15,7 +13,6 @@ export default {
   name: 'Auth',
   components: {
     Authform,
-
   }
 }
 </script>

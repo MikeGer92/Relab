@@ -9,43 +9,51 @@ const state = {
     validationErrors: null,
     isLogged: null
 };
+export const mutationTypes = {
+    registerStart: '[auth] registerStart',
+    registerSuccess: '[auth] registerSuccess',
+    registerFailure: '[auth] registerFailure'
+};
 
 const mutations = {
-    registerStart(state) {
+    [mutationTypes.registerStart](state) {
         state.isSubmitting = true;
         state.validationErrors = null;
     },
-    registerSuccess(state, payload) {
+    [mutationTypes.registerSuccess](state, payload) {
         state.isSubmitting = true;
         state.validationErrors = null;
         state.currentUser = payload;
         state.isLogged = true;
     },
-    registerFailure(state, payload) {
+    [mutationTypes.registerFailure](state, payload) {
         state.isSubmitting = true;
-        state.validationErrors = null;
         state.validationErrors = payload;
     }
-};   
-
+};  
+export const actionTypes = {
+    register: '[auth] register'
+};
 const actions = {
-    register(context, credentials) {
+    [actionTypes.register](context, credentials) {
         return new Promise(() => {
+            context.commit(mutationTypes.registerStart);
             authApi.register(credentials)
             .then(response => {
-                context.commit('registerSuccess', response.data.user);
+                context.commit(mutationTypes.registerSuccess, response.data.user);
                 setItem('accessToken', response.data.user.token);
                 resolve(response.data.user);
                 console.log('response', response);
-                
-                
+                setTimeout(() => {
+                    window.location.href = 'http://127.0.0.1:8080/';  
+                }, 3000);
             })
             .catch(result => {
                 console.log('result errors', result);
                 setTimeout(() => {
-                window.location.href = 'http://127.0.0.1:8080/';
-                context.commit('registerFailure', result.response.data.errors);
-        }, 5000);
+                    window.location.href = 'http://127.0.0.1:8080/';  
+                }, 3000);
+                context.commit(mutationTypes.registerFailure, result.response.data.errors);
             });
         });
     }

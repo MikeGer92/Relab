@@ -33,11 +33,11 @@ export default {
     TabHeaderUser,
     TabHeaderEvent
   },
+  events: [],
   data() {
     return {
       userUrl: '/users/list',
       connection: null,
-      events: []
     }
   },
   methods: {
@@ -54,12 +54,11 @@ export default {
 
       }
       this.connection.onmessage = function(event) {
-        console.log(event.data)
+        const events = []
         let message = event.data;
-        let newMess = JSON.parse(message)
-        // this.events.push(JSON.parse(message))
-        let curTime = (new Date(newMess.ctime * 1000).toLocaleString().replace(',', ''));
-        let curEvent = newMess.event
+        events.push(JSON.parse(message))
+        let curTime = (new Date(events[0].ctime * 1000).toLocaleString().replace(',', ''));
+        let curEvent = events[0].event
         let dateElem = document.createElement('div');
         dateElem.style.borderBottom = "solid 1px #444141"
         dateElem.textContent = curTime
@@ -68,6 +67,7 @@ export default {
         pEvent.textContent = curEvent
         document.getElementById('date').prepend(dateElem)
         document.getElementById('res').prepend(pEvent)
+
 
         
       }
