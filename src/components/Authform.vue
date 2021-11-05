@@ -4,6 +4,7 @@
       <div class="row">
         <div class="col-md-6 offset-md-3 col-xs-12">
           <div v-if="isSubmitting"><h3>Loading...</h3></div>
+          <div class="errors" v-for="error in errors" :key="error">{{ error }}</div>
           <form id="form" @submit.prevent="onSubmit" :disabled="isSubmitting">
             <fieldset class="form-group">
               <input
@@ -11,6 +12,7 @@
                 type="text"
                 placeholder="Email"
                 v-model="email"
+                @click="checkForm"
               />
             </fieldset>
             <fieldset class="form-group">
@@ -19,6 +21,7 @@
                 type="password"
                 placeholder="Password"
                 v-model="pass"
+                @click="checkForm"
               />
             </fieldset>
             <button class="btn btn-lg btn-primary pull-xs-right">
@@ -45,6 +48,7 @@ export default {
   },
   methods: {
     onSubmit() {
+      this.errors = []
       const res = this.checkForm(event)
       if (res == true) {
         console.log('submitted form'),
@@ -53,11 +57,11 @@ export default {
           console.log('successfully registration', user);
         })
       } else {
-        this.isErrors
+          console.log(this.errors)
       }
     },
     checkForm (e) {
-      this.errors = [];
+      this.errors = []
       if (!this.email) {
         this.errors.push('Укажите электронную почту.');
       } else if (!this.validEmail(this.email)) {
@@ -92,16 +96,9 @@ export default {
     isSubmitting() {
       return this.$store.state.auth.isSubmitting
     },
-    isLogged() {
-      return this.$store.state.auth.isLogged
+    mouseOut() {
+      return this.errors
     }
-    // isErrors() {
-    //   if (arr.length > 0) {
-    //     return true
-    //   } else {
-    //     return false
-    //   }
-    // }
   }
 }
 
@@ -116,6 +113,12 @@ export default {
 }
 .form-control{
   border: solid 1px rgb(66, 63, 63);
+}
+h3 {
+  color: #42b983
+}
+.errors {
+  color: red;
 }
 
 </style>
