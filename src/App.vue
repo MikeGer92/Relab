@@ -1,5 +1,4 @@
 <template>
-<<<<<<< HEAD
   <div id="app">
     <Header></Header>
     <Logo></Logo>
@@ -28,9 +27,3 @@ export default {
   color: #2c3e50;
 }
 </style>
-=======
-  <div>
-    <h1>Hello Relab!</h1>
-  </div>
-</template>
->>>>>>> b0896a43bc6ceadcf0aff0a5dbbc07960b5d7cb3
