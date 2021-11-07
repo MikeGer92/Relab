@@ -1,19 +1,19 @@
 <template>
-    <div>
-        <div v-if="isLoading">Loading...</div>
-        <div v-if="useritem">
-            <div class="useritem" v-for="(item, index) in useritem.items" :key="index">
-                <div class="user-meta">
-                    <div class="data-str user_id">{{ item.id }}</div>
-                    <div class="data-str user_name">{{ item.name }}</div>
-                    <div class="data-str user_role">{{ item.role }}</div>
-                    <CurDate class="data-str" >{{ ctimes[index] }}</CurDate>
-                    <button class="data-str nav-btn" type="button"  @click="$delete(useritem.items, index)">Удалить</button>
-                </div>
-            </div>
-            <Pagination :total="useritem.total" :limit="useritem.per_page" :current-page="currentPage" :url="baseUrl"></Pagination>
-        </div> 
-    </div>
+  <div>
+    <div v-if="isLoading">Loading...</div>
+    <div v-if="useritem">
+      <div class="useritem" v-for="(item, index) in useritem.items" :key="index">
+        <div class="user-meta">
+          <div class="data-str user_id">{{ item.id }}</div>
+          <div class="data-str user_name">{{ item.name }}</div>
+          <div class="data-str user_role">{{ item.role }}</div>
+          <CurDate class="data-str" >{{ ctimes[index] }}</CurDate>
+          <button class="data-str nav-btn" type="button"  @click="$delete(useritem.items, index)">Удалить</button>
+        </div>
+      </div>
+        <Pagination :total="useritem.total" :limit="useritem.per_page" :current-page="currentPage" :url="baseUrl"></Pagination>
+    </div> 
+  </div>
 </template>
 
 <script>

@@ -28,7 +28,6 @@
               Sign Up
             </button>
           </form>
-          <!-- <div v-if="isErrors">{{ errors }}</div> -->
         </div>
       </div>
     </div>
@@ -96,9 +95,6 @@ export default {
     isSubmitting() {
       return this.$store.state.auth.isSubmitting
     },
-    mouseOut() {
-      return this.errors
-    }
   }
 }
 
