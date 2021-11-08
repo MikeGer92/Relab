@@ -13,9 +13,9 @@
           <div class="card-pay">
             <p class="card-price">31 500</p>
             <div class="payment-sistem">
-              <a><img class="icon-pay mir-pay" src="../catalog/images/icons/mir.jpg"></a>        
+              <a><img class="icon-pay mir-pay" src="../catalog/images/icons/mir.svg"></a>        
               <a><img class="icon-pay pay-pay" src="../catalog/images/icons/pay.svg"></a>              
-              <a><img class="icon-pay sbp-pay" src="../catalog/images/icons/sbp.png"></a>
+              <a><img class="icon-pay sbp-pay" src="../catalog/images/icons/sbp.svg"></a>
             </div>
           </div>
           <div class="good-name">Apple / Смартфон iPhone SE2020</div>
@@ -31,7 +31,7 @@
           <div class="credit"><p>РАССРОЧКА 0-0-0-6</p></div>
           <div class="my-choise">
             <button class="cart-btn" type="button">В корзину</button>
-            <a><img class="icon-pay mir-pay" src="../catalog/images/icons/heart.png"></a> 
+            <a><img class="icon-pay mir-pay" src="../catalog/images/icons/heart.svg"></a> 
           </div>
         </div>
       </div>
@@ -47,9 +47,9 @@
           <div class="card-pay">
             <p class="card-price">42 840</p>
             <div class="payment-sistem">
-              <a><img class="icon-pay mir-pay" src="../catalog/images/icons/mir.jpg"></a>        
+              <a><img class="icon-pay mir-pay" src="../catalog/images/icons/mir.svg"></a>        
               <a><img class="icon-pay pay-pay" src="../catalog/images/icons/pay.svg"></a>              
-              <a><img class="icon-pay sbp-pay" src="../catalog/images/icons/sbp.png"></a>
+              <a><img class="icon-pay sbp-pay" src="../catalog/images/icons/sbp.svg"></a>
             </div>
           </div>
           <div class="good-name">Apple / Смартфон iPhone Xr</div>
@@ -65,7 +65,7 @@
           <div class="credit"><p>РАССРОЧКА 0-0-0-6</p></div>
           <div class="my-choise">
             <button class="cart-btn" type="button">В корзину</button>
-            <a><img class="icon-pay mir-pay" src="../catalog/images/icons/heart.png"></a> 
+            <a><img class="icon-pay mir-pay" src="../catalog/images/icons/heart.svg"></a> 
           </div>
         </div>
       </div>
@@ -81,9 +81,9 @@
           <div class="card-pay">
             <p class="card-price">44 990</p>
             <div class="payment-sistem">
-              <a><img class="icon-pay mir-pay" src="../catalog/images/icons/mir.jpg"></a>        
+              <a><img class="icon-pay mir-pay" src="../catalog/images/icons/mir.svg"></a>        
               <a><img class="icon-pay pay-pay" src="../catalog/images/icons/pay.svg"></a>              
-              <a><img class="icon-pay sbp-pay" src="../catalog/images/icons/sbp.png"></a>
+              <a><img class="icon-pay sbp-pay" src="../catalog/images/icons/sbp.svg"></a>
             </div>
           </div>
           <div class="good-name">Apple / Смартфон iPhone 11</div>
@@ -99,7 +99,7 @@
           <div class="credit"><p>РАССРОЧКА 0-0-0-6</p></div>
           <div class="my-choise">
             <button class="cart-btn" type="button">В корзину</button>
-            <a><img class="icon-pay mir-pay" src="../catalog/images/icons/heart.png"></a> 
+            <a><img class="icon-pay mir-pay" src="../catalog/images/icons/heart.svg"></a> 
           </div>
         </div>
       </div>
@@ -115,9 +115,9 @@
           <div class="card-pay">
             <p class="card-price">59 900</p>
             <div class="payment-sistem">
-              <a><img class="icon-pay mir-pay" src="../catalog/images/icons/mir.jpg"></a>        
+              <a><img class="icon-pay mir-pay" src="../catalog/images/icons/mir.svg"></a>        
               <a><img class="icon-pay pay-pay" src="../catalog/images/icons/pay.svg"></a>              
-              <a><img class="icon-pay sbp-pay" src="../catalog/images/icons/sbp.png"></a>
+              <a><img class="icon-pay sbp-pay" src="../catalog/images/icons/sbp.svg"></a>
             </div>
           </div>
           <div class="good-name">Apple / Смартфон iPhone 12</div>
@@ -133,7 +133,7 @@
           <div class="credit"><p>РАССРОЧКА 0-0-0-6</p></div>
           <div class="my-choise">
             <button class="cart-btn" type="button">В корзину</button>
-            <a><img class="icon-pay mir-pay" src="../catalog/images/icons/heart.png"></a> 
+            <a><img class="icon-pay mir-pay" src="../catalog/images/icons/heart.svg"></a> 
           </div>
         </div>
       </div>
